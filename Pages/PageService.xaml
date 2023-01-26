@@ -76,9 +76,9 @@
                                 </StackPanel>
                                 <TextBlock x:Name="tbDiscount" Uid="{Binding Discount}" Text="{Binding Discount, StringFormat={}*скидка {0}%}" Loaded="tbDiscount_Loaded" Margin="10"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Name="btnSaleService" Template="{StaticResource ButtonTemplate}" Loaded="btnSaleService_Loaded" Content="Записать клиента" Height="30" Width="150"  Margin="5,0"/>
-                                    <Button Name="btnEditService" Template="{StaticResource ButtonTemplate}" Loaded="btnEditService_Loaded" Content="Редактировать" Height="30" Width="150" Margin="50,0,5,0"/>
-                                    <Button Name="btnDeleteService" Template="{StaticResource ButtonTemplate}"  Loaded="btnDeleteService_Loaded"  Content="Удалить" Height="30" Width="150" />
+                                    <Button Name="btnSaleService" Template="{StaticResource ButtonTemplate}" Uid="{Binding ID}" Loaded="btnSaleService_Loaded" Content="Записать клиента" Height="30" Width="150"  Margin="5,0"/>
+                                    <Button Name="btnEditService" Template="{StaticResource ButtonTemplate}" Uid="{Binding ID}" Loaded="btnEditService_Loaded" Click="btnEditService_Click" Content="Редактировать" Height="30" Width="150" Margin="50,0,5,0"/>
+                                    <Button Name="btnDeleteService" Template="{StaticResource ButtonTemplate}" Uid="{Binding ID}" Click="btnDeleteService_Click"  Loaded="btnDeleteService_Loaded"  Content="Удалить" Height="30" Width="150" />
                                    
                                   
                                     </StackPanel>
@@ -96,7 +96,7 @@
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
 
-                <Button Template="{StaticResource ButtonTemplate}" Foreground="White" Name="btnAddService" Loaded="btnAddService_Loaded" Margin="0,0,5,0" Content="Добавить услугу" Height="30" Width="200" HorizontalAlignment="Center"/>
+                <Button Template="{StaticResource ButtonTemplate}" Foreground="White" Name="btnAddService" Loaded="btnAddService_Loaded" Margin="0,0,5,0" Content="Добавить услугу" Height="30" Width="200" HorizontalAlignment="Center" Click="btnAddService_Click"/>
                 
             </StackPanel>
         </Grid>

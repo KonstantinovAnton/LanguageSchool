@@ -1,0 +1,41 @@
+﻿<Page x:Class="LanguagesSchool.Pages.PageEditService"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LanguagesSchool.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="440" d:DesignWidth="800"
+      Title="PageEditService"
+      FontSize="15"
+      FontFamily="Comic Sans MS">
+
+    <Grid>
+
+        <StackPanel VerticalAlignment="Center" Height="350">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                <TextBlock Margin="10,0">Название</TextBlock>
+                 <TextBox Name="textBoxNameService" Width="488"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Margin="10,0">Стоимость</TextBlock>
+               <TextBox Name="textBoxPrice" Width="80"></TextBox>
+               <TextBlock Margin="10,0">Длительность (мин)</TextBlock>
+               <TextBox Name="textBoxDuration" Width="80"></TextBox>
+                <TextBlock Margin="10,0">Скидка</TextBlock>
+                <TextBox Name="textBoxDiscount" Width="80"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                <TextBlock Margin="5,0">Описание</TextBlock>
+                <TextBox Name="textBoxDescription" Margin="10,0" Width="490" Height="120"></TextBox>
+            </StackPanel>
+
+            <Image></Image>
+
+            <Button Margin="0,10,0,0" Name="buttonAddImage" Width="220" Height="30" Template="{StaticResource ButtonTemplate}" Foreground="White" Click="buttonAddImage_Click">Добавить изображение</Button>
+            <Button Margin="0,10" Name="buttonSaveChanges" Click="buttonSaveChanges_Click" Width="220" Height="30" Template="{StaticResource ButtonTemplate}" Foreground="White">Сохранить изменения</Button>
+            <Button Name="buttonGotoPageService" Click="buttonGotoPageService_Click" Width="220" Height="30" Template="{StaticResource ButtonTemplate}" Foreground="White">Вернуться к услугам</Button>
+        </StackPanel>
+        
+    </Grid>
+</Page>

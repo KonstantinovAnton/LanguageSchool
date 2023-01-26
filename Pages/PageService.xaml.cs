@@ -30,8 +30,6 @@ namespace LanguagesSchool.Pages
 
             textBlockCountShow.Text = Base.EM.Service.ToList().Count.ToString();
             textBlockAllCount.Text = Base.EM.Service.ToList().Count.ToString();
-
-
         }
 
         
@@ -125,6 +123,7 @@ namespace LanguagesSchool.Pages
             // Сортировка по возрастанию и убыванию
             if (comboBoxSort.SelectedIndex == 1)
             {
+                
                 listService.Sort((x, y) => x.CurrentPrice.CompareTo(y.CurrentPrice));
                 
             }
@@ -187,6 +186,53 @@ namespace LanguagesSchool.Pages
         private void textBoxSearchDescription_TextChanged(object sender, TextChangedEventArgs e)
         {
             sortData();
+        }
+
+        private void btnEditService_Click(object sender, RoutedEventArgs e)
+        {
+           Button btn = (Button)sender;
+            
+           Classes.GlobalValues.idService = Convert.ToInt32(btn.Uid);
+
+           NavigationService.Navigate(new Pages.PageEditService());
+        }
+
+        private void btnAddService_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.GlobalValues.idService = -1;
+
+            NavigationService.Navigate(new Pages.PageEditService());
+        }
+
+
+        // Удаление услуги
+        private void btnDeleteService_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            int idService = Convert.ToInt32(btn.Uid);
+            Service serviceDelete = Base.EM.Service.FirstOrDefault(x => x.ID == idService);
+
+            if (MessageBox.Show("Удалить услугу " + serviceDelete.Title + "?", "Удаление услуги", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+
+                try
+                {
+                    Base.EM.Service.Remove(serviceDelete);
+                    Base.EM.SaveChanges();
+
+                    MessageBox.Show("Услуга успешно удалена", "Удаление услуги",
+                               MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    NavigationService.Navigate(new Pages.PageService());
+                }
+                catch
+                {
+                    MessageBox.Show("Услуга не была удалена. Попробуйте позже", "Удаление услуги",
+                               MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+   
         }
     }
 }

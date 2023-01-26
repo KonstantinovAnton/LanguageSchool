@@ -9,5 +9,6 @@ namespace LanguagesSchool.Classes
     public static class GlobalValues
     {
         public static bool isAdminMode = false;
+        public static int idService;
     }
 }
